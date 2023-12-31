@@ -1,7 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.run = void 0;
+exports.description = exports.run = void 0;
+const discord_js_1 = require("discord.js");
 function run(interaction) {
-    interaction.reply(`Pong ${interaction.user}!`);
+    const embed = new discord_js_1.EmbedBuilder()
+        .setColor(0x380444)
+        .setTitle("Pong!")
+        .setAuthor({ name: "Foundry Bot" })
+        .addFields([
+        {
+            name: "Latency:",
+            value: `${Date.now() - interaction.createdTimestamp}ms`,
+        },
+    ]);
+    interaction.reply({ embeds: [embed] });
 }
 exports.run = run;
+exports.description = "Pongs Everybody!";

@@ -20,7 +20,7 @@ exports.commandsCollection = new discord_js_1.Collection();
 const cmdFiles = (0, fs_1.readdirSync)("./build/Commands").filter((file) => file.endsWith(".js") || file.endsWith(".ts"));
 for (let cmdFile of cmdFiles) {
     const cmdName = cmdFile.split(".")[0];
-    const cmd = require(`./commands/${cmdName}`);
+    const cmd = require(`./Commands/${cmdName}`);
     exports.commandsCollection.set(cmdName, cmd);
 }
 client.on("ready", () => {
